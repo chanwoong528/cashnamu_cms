@@ -3,10 +3,7 @@ import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
 import api from "../../../apis/apiMenus"
 
-
 import { Menu } from 'antd';
-
-import SubNav from './SubNav';
 
 const MainNav = () => {
 
@@ -59,37 +56,6 @@ const MainNav = () => {
             />
         )
     }
-
-
-    // <nav className='xl:rounded-r transform  xl:translate-x-0  ease-in-out transition duration-500 flex justify-start items-start h-full  w-full sm:w-64 bg-gray-900 flex-col'>
-    //     <ul className='flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full '>
-    //         {!isLoading ?
-    //             data.map((navIt, idx) => {
-    //                 return <li>
-    //                     <button onClick={() => { setCurSubIdx(idx) }} className='focus:outline-none focus:text-indigo-400  text-white flex justify-between items-center w-full text-center py-5 '>
-    //                         {navIt.title}
-    //                     </button>
-    //                     {idx === curSubIdx ? <ul>
-    //                         {
-    //                             navIt.subMenu.map((subNavIt, subidx) => {
-    //                                 return <SubNav sub_title={subNavIt.sub_title} url={subNavIt.url} />
-    //                             })
-    //                         }
-    //                     </ul> : null
-    //                     }
-
-
-    //                 </li>
-    //             }
-    //             ) : null
-    //         }
-
-
-    //     </ul>
-
-
-    // </nav>
-
 }
 
 export default MainNav

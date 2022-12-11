@@ -4,10 +4,11 @@ import api from '../apis/apiMenus';
 
 const Main = () => {
 
+    //dash board 가 될 예정
 
     return (
 
-        <div className='bg-slate-700'>Main</div>
+        <main >Main</main>
 
     )
 }

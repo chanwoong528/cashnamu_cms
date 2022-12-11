@@ -58,5 +58,79 @@
         }
       ]
     }
+  ],
+  "adminUsers": [
+    {
+      "id": 1,
+      "name": "문찬웅",
+      "email": "cksdnd004@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "문찬웅",
+      "email": "cksdnd004@gmail.com"
+    },
+    {
+      "id": 3,
+      "name": "문찬웅",
+      "email": "cksdnd004@gmail.com"
+    },
+    {
+      "id": 4,
+      "name": "문찬웅",
+      "email": "cksdnd004@gmail.com"
+    },
+    {
+      "id": 5,
+      "name": "문찬웅",
+      "email": "cksdnd004@gmail.com"
+    },
+    {
+      "id": 6,
+      "name": "문찬웅",
+      "email": "cksdnd004@gmail.com"
+    },
+    {
+      "id": 7,
+      "name": "문찬웅",
+      "email": "cksdnd004@gmail.com"
+    },
+    {
+      "id": 8,
+      "name": "문찬웅",
+      "email": "cksdnd004@gmail.com"
+    },
+    {
+      "id": 9,
+      "name": "문찬웅",
+      "email": "cksdnd004@gmail.com"
+    },
+    {
+      "id": 10,
+      "name": "문찬웅",
+      "email": "cksdnd004@gmail.com"
+    },
+    {
+      "id": 11,
+      "name": "문찬웅",
+      "email": "cksdnd004@gmail.com"
+    }
+  ],
+  "adminColumn": [
+    {
+      "key": "id",
+      "title": "ID",
+      "dataIndex": "id"
+    },
+    {
+      "key": "name",
+      "title": "Name",
+      "dataIndex": "name"
+    },
+    {
+      "key": "email",
+      "title": "Email",
+      "dataIndex": "email"
+    }
   ]
 }

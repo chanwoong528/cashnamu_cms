@@ -1,14 +1,8 @@
-import React from "react";
-
-
-
-
-
 
 async function fetchGetMenusCMS() {
     try {
 
-        // const fetchMenus = await fetch("../../data/menu.json");
+
         const fetchMenus = await fetch("http://localhost:3001/menus")
         const data = await fetchMenus.json()
         return data;

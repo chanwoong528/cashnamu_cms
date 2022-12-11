@@ -16,6 +16,7 @@ module.exports = (env, argv) => {
         devServer: {
             port: 3030,
             hot: true,
+            historyApiFallback: true,
         },
         optimization: {
             minimize: true,
@@ -54,7 +55,7 @@ module.exports = (env, argv) => {
                 },
                 {
                     test: /\.css$/i,
-                    use: ['style-loader', 'css-loader', 'postcss-loader'],
+                    use: ['style-loader', 'css-loader'],
                 },
                 {
                     test: /\.(json)$/,
