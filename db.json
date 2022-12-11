@@ -1,0 +1,62 @@
+{
+  "menus": [
+    {
+      "id": 0,
+      "title": "관리자",
+      "url": "/admin",
+      "subMenu": [
+        {
+          "id": 0,
+          "sub_title": "관리자 목록",
+          "url": "/admin/list"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "title": "회원",
+      "url": "/users",
+      "subMenu": [
+        {
+          "id": 0,
+          "sub_title": "회원 목록",
+          "url": "/users/list"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "머천트",
+      "url": "/merchants",
+      "subMenu": [
+        {
+          "id": 0,
+          "sub_title": "머천트 목록",
+          "url": "/merchants/list"
+        },
+        {
+          "id": 1,
+          "sub_title": "엑셀 업로드",
+          "url": "/merchants/upload"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "리워드",
+      "url": "/rewards",
+      "subMenu": [
+        {
+          "id": 0,
+          "sub_title": "리워드 목록",
+          "url": "/rewards/list"
+        },
+        {
+          "id": 1,
+          "sub_title": "리워드 실적 조회",
+          "url": "/rewards/data"
+        }
+      ]
+    }
+  ]
+}
