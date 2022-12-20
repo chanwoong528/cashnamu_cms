@@ -1,20 +1,45 @@
+import { apiUrl } from "../common/Config";
+
+
+async function fetchGetAdminItem(id) {
+
+    try {
+        const fetchGetAdminItem = await fetch(`${apiUrl}/adminUsers/${id}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        }
+        )
+        const data = await fetchGetAdminItem.json()
+        return data
+
+        if (returnData.length === 0) {
+            return 404;
+        } else {
+
+        }
+
+    } catch (error) {
+        console.warn("fetchGetAdminList[error]: ", error)
+    }
+}
+
 
 async function fetchGetAdminList() {
     try {
-
-
-        const fetchGetAdminList = await fetch("http://localhost:3001/adminUsers")
+        const fetchGetAdminList = await fetch(`${apiUrl}/adminUsers`)
         const data = await fetchGetAdminList.json()
-        console.log(data)
-        return data.filter((admin => admin.activate !== "N"));
+
+        return data.filter((admin => admin.activate));
     } catch (error) {
         console.warn("fetchGetAdminList[error]: ", error)
     }
 };
 async function fetchPatchDeleteAdmin(id) {
     try {
-        let params = { id, activate: "N" }
-        const fetchPostDeleteAdmin = await fetch(`http://localhost:3001/adminUsers/${id}`, {
+        let params = { id, activate: false }
+        const fetchPostDeleteAdmin = await fetch(`${apiUrl}/adminUsers/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -30,10 +55,10 @@ async function fetchPatchDeleteAdmin(id) {
 
 }
 async function fetchPatchAuthById(adminAuthData) {
-    let params = { adminAuthData }
-    console.log("api", adminAuthData)
+    let params = { ...adminAuthData }
+    console.log(adminAuthData)
     try {
-        const fetchPatchAuthSingleAdmin = await fetch(`http://localhost:3001/adminUsers/${adminAuthData.id}`, {
+        const fetchPatchAuthSingleAdmin = await fetch(`${apiUrl}/adminUsers/${adminAuthData.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -53,5 +78,5 @@ async function fetchPatchAuthById(adminAuthData) {
 
 
 
-export default { fetchGetAdminList, fetchPatchDeleteAdmin, fetchPatchAuthById };
+export default { fetchGetAdminList, fetchPatchDeleteAdmin, fetchPatchAuthById, fetchGetAdminItem };
 

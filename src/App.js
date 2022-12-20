@@ -6,6 +6,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import Main from "./routes/Main";
 import MainNav from './components/Elements/Nav/MainNav';
 import AdminList from './routes/AdminList';
+import UserList from './routes/UserList';
 
 
 const App = () => {
@@ -20,6 +21,9 @@ const App = () => {
                     <Route path='/' element={<Main />} />
                     <Route path='admin' >
                         <Route path='list' element={<AdminList />} />
+                    </Route>
+                    <Route path='user' >
+                        <Route path='list' element={<UserList />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

@@ -1,9 +1,10 @@
+import { apiUrl } from "../common/Config";
 
 async function fetchGetMenusCMS() {
     try {
 
 
-        const fetchMenus = await fetch("http://localhost:3001/menus")
+        const fetchMenus = await fetch(`${apiUrl}/menus`)
         const data = await fetchMenus.json()
         return data;
     } catch (error) {

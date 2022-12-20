@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import { Table, Space, Button, Modal, Form, Switch, Input } from 'antd'
+import { Table, Space, Button, Modal, Form, Radio, Input } from 'antd'
 import { useQuery, useMutation, useQueryClient } from 'react-query'
 
 import api from "../apis/apiAdmin"
 
 const AdminList = () => {
-    const [admins, setAdmins] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [curAdmin, setCurAdmin] = useState({});
     const [form] = Form.useForm();
@@ -55,21 +54,24 @@ const AdminList = () => {
         }
     ]
 
-    const onClickGiveAuthRow = async (record) => {
+    const onClickGiveAuthRow = (record) => {
+        const targetAdmin = data.find(admin => admin.id === record.id)
+        console.log(targetAdmin);
+        setCurAdmin(targetAdmin)
+
+
         setIsModalOpen(true)
 
-        setCurAdmin(record)
+
     }
     const onClickEditDeleteRow = async (record) => {
         mutationDeleteAdmin.mutate(record.id)
     }
     const onSubmitSaveAdminData = async (record) => {
-        console.log("!!!!@@#", curAdmin.id)
         mutationPatchAdmin.mutate({ ...record, id: curAdmin.id })
 
+
     }
-
-
 
     const validateMessages = {
         required: '${label} is required!',
@@ -104,6 +106,15 @@ const AdminList = () => {
                     setIsModalOpen(false);
                 }}
                 onCancel={() => { setIsModalOpen(false); }}>
+                <div>id: {curAdmin.id}</div>
+                <form action="" onSubmit={onSubmitSaveAdminData}>
+
+
+
+                </form>
+
+
+
                 <Form initialValues={
                     curAdmin
                 } form={form} onFinish={onSubmitSaveAdminData}>
@@ -118,20 +129,24 @@ const AdminList = () => {
                         label="email">
                         <Input />
                     </Form.Item>
-                    {Object.keys(curAdmin).filter((key) => key.includes("AUTH")).map((formItem) => {
+
+                    {Object.keys(curAdmin).filter((key) => key.includes("auth")).map((formItem) => {
                         return (
+
                             <Form.Item
                                 name={formItem}
-                                label={formItem}>
-                                <Switch
-                                    checkedChildren="Y"
-                                    uncheckedChildren="N"
-                                    defaultChecked={curAdmin[formItem]}
-                                    onChange={(checked) => {
-                                        setCurAdmin({ ...curAdmin, formItem: checked })
-
-                                    }} />
+                                label={formItem}
+                            >
+                                <Space split size="middle" direction='vertical'>
+                                    <Radio.Group onChange={(e) => {
+                                        setCurAdmin({ ...curAdmin, [formItem]: e.target.value })
+                                    }} value={curAdmin[formItem]}>
+                                        <Radio value={true}>Y</Radio>
+                                        <Radio style={{ color: "red", borderColor: "red" }} value={false}>N</Radio>
+                                    </Radio.Group>
+                                </Space>
                             </Form.Item>
+
                         )
 
                     })
@@ -143,7 +158,7 @@ const AdminList = () => {
 
 
             </Modal>
-        </main>
+        </main >
     )
 }
 
