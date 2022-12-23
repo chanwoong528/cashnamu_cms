@@ -7,22 +7,13 @@ import { Menu } from 'antd';
 
 const MainNav = () => {
 
-    const { isLoading, isError, data, error } = useQuery(
-
-        "menus",
-        api.fetchGetMenusCMS,
-    )
+    const { isLoading, isError, data, error } = useQuery("menus", api.fetchGetMenusCMS,)
     const navigate = useNavigate();
     const onClickMenu = (e) => {
-        console.log(e.keyPath)
         navigate(e.item.props.url)
     }
-    console.log(data)
-    // key: "sub1"
-    // icon: Object
-    // children: Array(2)
-    // label: "Navigation One"
-    // type: undefined
+
+
 
 
     if (!isLoading) {

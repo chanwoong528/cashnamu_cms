@@ -112,9 +112,9 @@
       "id": 4,
       "name": "문찬웅",
       "email": "cksdnd004@gmail.com",
-      "activate": true,
-      "auth_category": "false",
-      "auth_admin": true,
+      "activate": false,
+      "auth_category": false,
+      "auth_admin": false,
       "auth_hotdeal": true,
       "auth_pointshop": true,
       "auth_policy": true,
@@ -129,12 +129,12 @@
       "name": "문찬웅",
       "email": "cksdnd004@gmail.com",
       "activate": true,
-      "auth_category": true,
-      "auth_admin": true,
-      "auth_hotdeal": true,
+      "auth_category": "false",
+      "auth_admin": "false",
+      "auth_hotdeal": "false",
       "auth_pointshop": true,
-      "auth_policy": true,
-      "auth_notice": true,
+      "auth_policy": "false",
+      "auth_notice": "false",
       "auth_refund": true,
       "auth_reward": true,
       "auth_merchant": true,
@@ -145,9 +145,9 @@
       "name": "문찬웅",
       "email": "cksdnd004@gmail.com",
       "activate": true,
-      "auth_category": "false",
-      "auth_admin": true,
-      "auth_hotdeal": "true",
+      "auth_category": false,
+      "auth_admin": false,
+      "auth_hotdeal": false,
       "auth_pointshop": true,
       "auth_policy": true,
       "auth_notice": true,
@@ -161,11 +161,11 @@
       "name": "문찬웅",
       "email": "cksdnd004@gmail.com",
       "activate": true,
-      "auth_category": true,
-      "auth_admin": true,
-      "auth_hotdeal": true,
-      "auth_pointshop": true,
-      "auth_policy": true,
+      "auth_category": false,
+      "auth_admin": false,
+      "auth_hotdeal": false,
+      "auth_pointshop": false,
+      "auth_policy": false,
       "auth_notice": true,
       "auth_refund": true,
       "auth_reward": true,
@@ -264,6 +264,8 @@
       "cell": "",
       "points": 0,
       "bankOwner": "",
+      "bankName": "",
+      "bankAccountNum": "",
       "marketingAgree": true,
       "createdDate": "2022-12-18 22: 11: 43",
       "lastLoggedInDate": " 2022-12-18 22: 13: 43"
@@ -277,6 +279,8 @@
       "cell": "",
       "points": 0,
       "bankOwner": "",
+      "bankName": "",
+      "bankAccountNum": "",
       "marketingAgree": true,
       "createdDate": "2022-12-18 22: 11: 43",
       "lastLoggedInDate": " 2022-12-18 22: 13: 43"
@@ -290,6 +294,8 @@
       "cell": "",
       "points": 0,
       "bankOwner": "",
+      "bankName": "",
+      "bankAccountNum": "",
       "marketingAgree": true,
       "createdDate": "2022-12-18 22: 11: 43",
       "lastLoggedInDate": " 2022-12-18 22: 13: 43"
@@ -303,9 +309,107 @@
       "cell": "",
       "points": 0,
       "bankOwner": "",
+      "bankName": "",
+      "bankAccountNum": "",
       "marketingAgree": true,
       "createdDate": "2022-12-18 22: 11: 43",
       "lastLoggedInDate": " 2022-12-18 22: 13: 43"
+    },
+    {
+      "id": 5,
+      "activate": true,
+      "type": "kakao",
+      "name": "김수빈",
+      "email": "ballbot@gmail.com",
+      "cell": "",
+      "points": 0,
+      "bankOwner": "",
+      "bankName": "",
+      "bankAccountNum": "",
+      "marketingAgree": true,
+      "createdDate": "2022-12-18 22: 11: 43",
+      "lastLoggedInDate": " 2022-12-18 22: 13: 43"
+    },
+    {
+      "id": 6,
+      "activate": true,
+      "type": "kakao",
+      "name": "김수빈",
+      "email": "cksdnd004@gmail.com",
+      "cell": "",
+      "points": 0,
+      "bankOwner": "",
+      "bankName": "",
+      "bankAccountNum": "",
+      "marketingAgree": true,
+      "createdDate": "2022-12-18 22: 11: 43",
+      "lastLoggedInDate": " 2022-12-18 22: 13: 43"
+    }
+  ],
+  "bankNames": [
+    {
+      "label": "국민은행",
+      "value": "국민은행"
+    },
+    {
+      "label": "기업은행",
+      "value": "기업은행"
+    },
+    {
+      "label": "신한은행",
+      "value": "신한은행"
+    },
+    {
+      "label": "우리은행",
+      "value": "우리은행"
+    },
+    {
+      "label": "하나은행",
+      "value": "하나은행"
+    },
+    {
+      "label": "케이뱅크",
+      "value": "케이뱅크"
+    },
+    {
+      "label": "카카오뱅크",
+      "value": "카카오뱅크"
+    },
+    {
+      "label": "토스뱅크",
+      "value": "토스뱅크"
+    },
+    {
+      "label": "NH농협은행",
+      "value": "NH농협은행"
+    },
+    {
+      "label": "수협은행",
+      "value": "수협은행"
+    },
+    {
+      "label": "대구은행",
+      "value": "대구은행"
+    },
+    {
+      "label": "부산은행",
+      "value": "부산은행"
+    },
+    {
+      "label": "경남은행",
+      "value": "경남은행"
+    },
+    {
+      "label": "광주은행",
+      "value": "광주은행"
+    },
+    {
+      "label": "전북은행",
+      "value": "전북은행"
+    },
+    {
+      "label": "제주은행",
+      "value": "제주은행"
     }
   ]
 }

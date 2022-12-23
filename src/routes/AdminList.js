@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Table, Space, Button, Modal, Form, Radio, Input } from 'antd'
+import { Table, Space, Button, Modal, Form, Input, Switch } from 'antd'
 import { useQuery, useMutation, useQueryClient } from 'react-query'
 
 import api from "../apis/apiAdmin"
@@ -23,8 +23,6 @@ const AdminList = () => {
             queryClient.invalidateQueries("adminUsers")
         }
     })
-
-
     const actionTab = [
         {
             "key": "id",
@@ -45,10 +43,9 @@ const AdminList = () => {
             title: 'Action',
             key: 'action',
             render: (record) => {
-
                 return <Space size="middle">
                     <Button onClick={() => { onClickGiveAuthRow(record) }}>Edit</Button>
-                    <Button danger onClick={() => { onClickEditDeleteRow(record) }}>Delete</Button>
+                    <Button danger onClick={() => { onClickDeleteRow(record) }}>Delete</Button>
                 </Space>
             }
         }
@@ -56,16 +53,17 @@ const AdminList = () => {
 
     const onClickGiveAuthRow = (record) => {
         const targetAdmin = data.find(admin => admin.id === record.id)
-        console.log(targetAdmin);
         setCurAdmin(targetAdmin)
-
-
         setIsModalOpen(true)
-
-
     }
-    const onClickEditDeleteRow = async (record) => {
-        mutationDeleteAdmin.mutate(record.id)
+    const onClickDeleteRow = async (record) => {
+        let deleteConfirm = confirm("Sure to delete Admin?")
+        if (deleteConfirm) {
+            return mutationDeleteAdmin.mutate(record.id)
+        } else {
+            return;
+        }
+
     }
     const onSubmitSaveAdminData = async (record) => {
         mutationPatchAdmin.mutate({ ...record, id: curAdmin.id })
@@ -106,57 +104,37 @@ const AdminList = () => {
                     setIsModalOpen(false);
                 }}
                 onCancel={() => { setIsModalOpen(false); }}>
-                <div>id: {curAdmin.id}</div>
-                <form action="" onSubmit={onSubmitSaveAdminData}>
-
-
-
-                </form>
-
-
-
-                <Form initialValues={
-                    curAdmin
-                } form={form} onFinish={onSubmitSaveAdminData}>
+                <Form initialValues={curAdmin} form={form} onFinish={onSubmitSaveAdminData}>
                     <Form.Item
+                        shouldUpdate={(prevValues, curValues) => prevValues.additional !== curValues.additional}
                         name="name"
                         label="name">
                         <Input />
                     </Form.Item>
 
                     <Form.Item
+                        shouldUpdate={(prevValues, curValues) => prevValues.additional !== curValues.additional}
                         name="email"
                         label="email">
                         <Input />
                     </Form.Item>
 
-                    {Object.keys(curAdmin).filter((key) => key.includes("auth")).map((formItem) => {
+                    {Object.keys(curAdmin).filter((key) => key.includes("auth")).map((formItem, idx) => {
                         return (
-
                             <Form.Item
+                                key={idx}
+                                shouldUpdate={(prevValues, curValues) => prevValues.additional !== curValues.additional}
                                 name={formItem}
-                                label={formItem}
-                            >
-                                <Space split size="middle" direction='vertical'>
-                                    <Radio.Group onChange={(e) => {
-                                        setCurAdmin({ ...curAdmin, [formItem]: e.target.value })
-                                    }} value={curAdmin[formItem]}>
-                                        <Radio value={true}>Y</Radio>
-                                        <Radio style={{ color: "red", borderColor: "red" }} value={false}>N</Radio>
-                                    </Radio.Group>
-                                </Space>
-                            </Form.Item>
-
-                        )
-
+                                label={formItem}>
+                                <Switch
+                                    checked={curAdmin[formItem]}
+                                    onChange={(checked) => {
+                                        setCurAdmin({ ...curAdmin, [formItem]: checked })
+                                    }} />
+                            </Form.Item>)
                     })
                     }
-
-
-
                 </Form>
-
-
             </Modal>
         </main >
     )
