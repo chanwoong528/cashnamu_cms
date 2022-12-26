@@ -13,18 +13,28 @@ const UserList = () => {
         "users",
         api.fetchGetUserList,
     )
+    const mutationPatchUser = useMutation(api.fetchPatchUser, {
+        onSuccess: () => {
+            queryClient.invalidateQueries("users");
+        }
+    })
+    const mutationDeleteUser = useMutation(api.fetchPatchDeleteUser, {
+        onSuccess: () => {
+            queryClient.invalidateQueries("users")
+        }
+    })
+
     const bankNames = useQuery("bankNames", api.fetchGetBankList);
     const [searchText, setSearchText] = useState('');
     const [searchedColumn, setSearchedColumn] = useState('');
-    const [searchDate, setSearchDate] = useState('');
-    const [searchedDateColumn, setSearchedDateColumn] = useState('');
     const [curUser, setCurUser] = useState({});
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [form] = Form.useForm();
     const searchInput = useRef(null);
     const handleReset = (clearFilters) => {
-        clearFilters();
+
         setSearchText('');
+        clearFilters();
     };
     const handleSearch = (selectedKeys, confirm, dataIndex) => {
         confirm();
@@ -108,10 +118,15 @@ const UserList = () => {
             ),
     });
     const onClickDeleteUser = async (record) => {
-
+        let deleteConfirm = confirm("Sure to delete User?")
+        if (deleteConfirm) {
+            return mutationDeleteUser.mutate(record.id)
+        } else {
+            return;
+        }
     }
-    const onSubmitUserData = async () => {
-
+    const onSubmitUserData = async (record) => {
+        mutationPatchUser.mutate({ ...record, id: curUser.id, email: curUser.email });
     }
     const onClickEditUser = async (record) => {
         const targetUser = users.data.filter((dataUser) => dataUser.id === record.id);
@@ -183,11 +198,9 @@ const UserList = () => {
 
 
     return (
-        <main>
-            <div className='btn-control'>
-                <Button>Clear Filter</Button>
-            </div>
-            <div style={{ width: "100%", padding: "20px" }}>
+
+        <main className='page'>
+            <div style={{ width: "100%" }}>
                 <Table dataSource={users.data}
                     columns={actionTab} />
             </div>
@@ -203,7 +216,7 @@ const UserList = () => {
                     <p>가입날짜: {curUser.createdDate}</p>
                     <p>마지막 활동 날짜: {curUser.lastLoggedInDate}</p>
                 </div>
-                <Form initialValues={curUser} form={form} onFinish={onSubmitUserData}>
+                <Form layout='vertical' initialValues={curUser} form={form} onFinish={onSubmitUserData}>
                     <Form.Item
                         shouldUpdate={(prevValues, curValues) => prevValues.additional !== curValues.additional}
                         name="name"
@@ -245,15 +258,14 @@ const UserList = () => {
                         shouldUpdate={(prevValues, curValues) => prevValues.additional !== curValues.additional}
                         name="marketingAgree"
                         label="marketingAgree">
-                        <Switch />
+                        <Switch checked={curUser.marketingAgree} onChange={(checked) => {
+                            setCurUser({ ...curUser, marketingAgree: checked })
+                        }} />
                     </Form.Item>
-
-
-
                 </Form>
-
             </Modal>
         </ main >
+
     )
 }
 

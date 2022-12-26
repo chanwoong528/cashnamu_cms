@@ -1,0 +1,14 @@
+.main-top-banner {
+    display: flex;
+    align-items: center;
+
+    height: 60px;
+    padding: 0 0 0 20px;
+
+    background-color: #BAE0FF;
+}
+
+.main-nav {
+    height: 100%;
+    margin-top: 20px;
+}

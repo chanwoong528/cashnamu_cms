@@ -129,7 +129,7 @@
       "name": "문찬웅",
       "email": "cksdnd004@gmail.com",
       "activate": true,
-      "auth_category": "false",
+      "auth_category": false,
       "auth_admin": "false",
       "auth_hotdeal": "false",
       "auth_pointshop": true,
@@ -257,7 +257,7 @@
   "users": [
     {
       "id": 1,
-      "activate": true,
+      "activate": false,
       "type": "kakao",
       "name": "문찬웅",
       "email": "cksdnd004@gmail.com",
@@ -272,7 +272,7 @@
     },
     {
       "id": 2,
-      "activate": true,
+      "activate": false,
       "type": "naver",
       "name": "문찬웅",
       "email": "cksdnd004@gmail.com",
@@ -311,7 +311,7 @@
       "bankOwner": "",
       "bankName": "",
       "bankAccountNum": "",
-      "marketingAgree": true,
+      "marketingAgree": false,
       "createdDate": "2022-12-18 22: 11: 43",
       "lastLoggedInDate": " 2022-12-18 22: 13: 43"
     },
@@ -319,14 +319,14 @@
       "id": 5,
       "activate": true,
       "type": "kakao",
-      "name": "김수빈",
+      "name": "문찬웅",
       "email": "ballbot@gmail.com",
       "cell": "",
       "points": 0,
       "bankOwner": "",
       "bankName": "",
       "bankAccountNum": "",
-      "marketingAgree": true,
+      "marketingAgree": false,
       "createdDate": "2022-12-18 22: 11: 43",
       "lastLoggedInDate": " 2022-12-18 22: 13: 43"
     },
@@ -410,6 +410,137 @@
     {
       "label": "제주은행",
       "value": "제주은행"
+    }
+  ],
+  "category": [
+    {
+      "value": "shopping",
+      "label": "쇼핑",
+      "smallCategory": [
+        {
+          "value": "shoppingMall",
+          "label": "종합쇼핑몰"
+        },
+        {
+          "value": "life_interior",
+          "label": "생활/인테리어"
+        },
+        {
+          "value": "book_culture",
+          "label": "도서/문화"
+        },
+        {
+          "value": "food",
+          "label": "식품"
+        },
+        {
+          "value": "electronics",
+          "label": "가전/디지털/IT"
+        },
+        {
+          "value": "edu",
+          "label": "교육"
+        },
+        {
+          "value": "wellbeing",
+          "label": "건강"
+        },
+        {
+          "value": "beauty",
+          "label": "뷰티"
+        },
+        {
+          "value": "fashion",
+          "label": "패션"
+        }
+      ]
+    },
+    {
+      "value": "traveling",
+      "label": "여행",
+      "smallCategory": [
+        {
+          "value": "traveling_ticket",
+          "label": "여행/티켓"
+        },
+        {
+          "value": "etc",
+          "label": "기타"
+        }
+      ]
+    },
+    {
+      "value": "etc",
+      "label": "기타",
+      "smallCategory": [
+        {
+          "value": "finance",
+          "label": "금융"
+        },
+        {
+          "value": "kids",
+          "label": "유아/아동"
+        }
+      ]
+    }
+  ],
+  "merchants": [
+    {
+      "id": 0,
+      "bigCategory": "",
+      "smallCategory": "",
+      "logoImgUrl": "",
+      "merchantId": "",
+      "siteName": "",
+      "siteUrl": "",
+      "mobile": true,
+      "popular": false,
+      "deepLink": false,
+      "status": "available",
+      "siteInfo": "",
+      "siteCaution": "",
+      "commission": "",
+      "views": 0,
+      "createdDate": "",
+      "updatedDate": ""
+    },
+    {
+      "bigCategory": "shopping",
+      "smallCategory": "life_interior",
+      "logoImgUrl": "aaaaa",
+      "merchantId": "",
+      "siteName": "aaaaa",
+      "siteUrl": "aaaaaa",
+      "mobile": true,
+      "popular": false,
+      "deepLink": false,
+      "status": "available",
+      "siteInfo": "aaavbbababab\nbb\nbb\nbbb\nbb",
+      "siteCaution": "aaa\naa\na\naaa",
+      "commission": "",
+      "views": 0,
+      "createdDate": "",
+      "updatedDate": "",
+      "id": 1
+    },
+    {
+      "bigCategory": "traveling",
+      "smallCategory": "traveling_ticket",
+      "logoImgUrl": "aaasdasdas",
+      "merchantId": "",
+      "siteName": "asdasdasd",
+      "siteUrl": "asdasdasdsa",
+      "mobile": true,
+      "popular": true,
+      "deepLink": false,
+      "status": "unavailable",
+      "siteInfo": "bbbsdsvs\ncc\nc\nc\ncc\n\nssss",
+      "siteCaution": "aa\na\na\na\na\na\n\n\naaa",
+      "commission": "",
+      "views": 0,
+      "createdDate": "",
+      "updatedDate": "",
+      "id": 2
     }
   ]
 }

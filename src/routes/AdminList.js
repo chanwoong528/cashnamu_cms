@@ -66,7 +66,7 @@ const AdminList = () => {
 
     }
     const onSubmitSaveAdminData = async (record) => {
-        mutationPatchAdmin.mutate({ ...record, id: curAdmin.id })
+        mutationPatchAdmin.mutate({ id: curAdmin.id, ...record })
 
 
     }
@@ -83,8 +83,9 @@ const AdminList = () => {
     };
 
     return (
-        <main>
-            <div style={{ width: "100%", padding: "20px" }}>
+
+        <main className='page'>
+            <div style={{ width: "100%", }}            >
                 {!isLoading ?
                     <Table dataSource={data}
                         onRow={(row, rowIdx) => {
@@ -104,7 +105,7 @@ const AdminList = () => {
                     setIsModalOpen(false);
                 }}
                 onCancel={() => { setIsModalOpen(false); }}>
-                <Form initialValues={curAdmin} form={form} onFinish={onSubmitSaveAdminData}>
+                <Form layout='vertical' initialValues={curAdmin} form={form} onFinish={onSubmitSaveAdminData}>
                     <Form.Item
                         shouldUpdate={(prevValues, curValues) => prevValues.additional !== curValues.additional}
                         name="name"
@@ -137,6 +138,7 @@ const AdminList = () => {
                 </Form>
             </Modal>
         </main >
+
     )
 }
 

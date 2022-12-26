@@ -45,7 +45,6 @@ async function fetchPatchDeleteAdmin(id) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(params)
-
         })
         const data = fetchPostDeleteAdmin.json()
         return data;
@@ -56,7 +55,6 @@ async function fetchPatchDeleteAdmin(id) {
 }
 async function fetchPatchAuthById(adminAuthData) {
     let params = { ...adminAuthData }
-    console.log(adminAuthData)
     try {
         const fetchPatchAuthSingleAdmin = await fetch(`${apiUrl}/adminUsers/${adminAuthData.id}`, {
             method: "PATCH",

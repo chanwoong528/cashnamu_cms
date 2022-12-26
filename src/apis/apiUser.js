@@ -10,8 +10,40 @@ async function fetchGetUserList() {
     } catch (error) {
         console.warn("fetchGetUserList[error]: ", error)
     }
-
 }
+async function fetchPatchUser(record) {
+    let params = { ...record };
+    try {
+        const fetchPatchUser = await fetch(`${apiUrl}/users/${record.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(params)
+        })
+        const data = await fetchPatchUser.json()
+        return data;
+    } catch (error) {
+        console.warn("fetchPatchUser[error]: ", error)
+    }
+}
+async function fetchPatchDeleteUser(id) {
+    try {
+        let params = { id, activate: false }
+        const fetchPatchDeleteUser = await fetch(`${apiUrl}/users/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(params)
+        })
+        const data = fetchPatchDeleteUser.json();
+        return data;
+    } catch (error) {
+        console.warn("fetchPatchDeleteUser[error]: ", error)
+    }
+}
+
 async function fetchGetBankList() {
     try {
         const fetchGetBankList = await fetch(`${apiUrl}/bankNames`)
@@ -24,4 +56,4 @@ async function fetchGetBankList() {
 
 
 
-export default { fetchGetUserList, fetchGetBankList }
+export default { fetchGetUserList, fetchGetBankList, fetchPatchUser, fetchPatchDeleteUser }

@@ -8,7 +8,9 @@ const Main = () => {
 
     return (
 
-        <main >Main</main>
+        <main className='page'>
+            Main
+        </main>
 
     )
 }

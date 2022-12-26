@@ -64,6 +64,10 @@ module.exports = (env, argv) => {
                         filename: 'assets/data/[name][ext]',
                     },
                 },
+                {
+                    test: /\.(png|jpe?g|gif|svg|mp4)$/i,
+                    type: 'asset/resource',
+                },
             ]
         },
 
@@ -76,26 +80,26 @@ module.exports = (env, argv) => {
                 template: './src/index.html',
                 filename: './index.html'
             }), // './src/index.html' 경로의 html 파일에 번들 파일을 넣어줍니다.
-            // new CopyPlugin({
-            //     patterns: [
-            //         {
-            //             from: path.join(__dirname, 'src/data'),
-            //             to: path.join(__dirname, 'dist/assets/data')
-            //         },
-            //         // {
-            //         //     from: path.join(__dirname, 'src/img'),
-            //         //     to: path.join(__dirname, 'dist/img')
-            //         // },
-            //         // {
-            //         //     from: path.join(__dirname, 'src/lib'),
-            //         //     to: path.join(__dirname, 'dist/lib')
-            //         // },
-            //         // {
-            //         //     from: path.join(__dirname, 'src/fonts'),
-            //         //     to: path.join(__dirname, 'dist/fonts')
-            //         // }
-            //     ]
-            // }),
+            new CopyPlugin({
+                patterns: [
+                    {
+                        from: path.join(__dirname, 'src/assets/img'),
+                        to: path.join(__dirname, 'dist/assets/img')
+                    },
+                    //         {
+                    //             from: path.join(__dirname, 'src/data'),
+                    //             to: path.join(__dirname, 'dist/assets/data')
+                    //         },
+                    //         // {
+                    //         //     from: path.join(__dirname, 'src/lib'),
+                    //         //     to: path.join(__dirname, 'dist/lib')
+                    //         // },
+                    //         // {
+                    //         //     from: path.join(__dirname, 'src/fonts'),
+                    //         //     to: path.join(__dirname, 'dist/fonts')
+                    //         // }
+                ]
+            }),
             new CleanWebpackPlugin(),
 
         ]
