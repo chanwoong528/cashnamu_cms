@@ -3,7 +3,9 @@ import { Table, Space, Button, Modal, Form, Switch, Input, InputNumber, Select }
 import { useMutation, useQuery, useQueryClient } from 'react-query'
 import { useNavigate } from 'react-router-dom'
 
-import api from "../apis/apiMerchant"
+import api from "../../apis/apiMerchant"
+
+
 const MerchantList = () => {
     const navigate = useNavigate();
     const queryClient = useQueryClient();
@@ -14,7 +16,6 @@ const MerchantList = () => {
             queryClient.invalidateQueries("merchants")
         }
     })
-
     const actionTab = [
         {
             "key": "id",
@@ -63,7 +64,6 @@ const MerchantList = () => {
                     <Select
                         defaultValue={status}
                         onChange={(status) => {
-                            console.log(status)
                             merchantEditMobile.mutate({ ...record, status: status })
                         }}
                         options={
@@ -99,18 +99,17 @@ const MerchantList = () => {
     ]
 
     const onSelectChange = (newSelectedRowKeys, record) => {
-
-        console.log('selectedRowKeys changed: ', newSelectedRowKeys);
-        console.log(record)//here you can get all the records. 
         setSelectedRowKeys(newSelectedRowKeys);
-    }; const rowSelection = {
+    };
+    const rowSelection = {
         selectedRowKeys,
         onChange: onSelectChange,
     };
     return (
         <main className='page'>
             <div style={{ width: "100%" }} className='btn-control'>
-                <Button onClick={() => { navigate("/merchants/new") }}>Add New Merchant</Button>
+                <Button type="primary" onClick={() => { navigate("/merchants/new") }}>Add New Merchant</Button>
+                <Button onClick={() => { navigate("/merchants/new") }}>Excel Upload</Button>
             </div>
 
             <div style={{ width: "100%" }}>

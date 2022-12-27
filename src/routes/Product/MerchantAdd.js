@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import { Table, Space, Button, Modal, Form, Switch, Input, InputNumber, Select } from 'antd'
+import { Button, Form, Switch, Input, Select } from 'antd'
 import { useQuery, useMutation, useQueryClient, } from 'react-query'
 
-import api from "../apis/apiMerchant"
-import Label from '../components/Elements/Form/Label'
+import api from "../../apis/apiMerchant"
+import { MerchantStatusList } from '../../common/ActionTabsConfig'
+
+
 
 const MerchantAdd = () => {
     const queryClient = useQueryClient()
@@ -43,7 +45,7 @@ const MerchantAdd = () => {
     })
     const onSubmitAddMerchant = async (formValue) => {
         setCurMerchantValues({ ...curMerchantValues, ...formValue })
-        console.log("view: ", curMerchantValues)
+
         mutationPostMerchant.mutate(curMerchantValues);
         setCurMerchantValues({
             bigCategory: "",
@@ -63,13 +65,7 @@ const MerchantAdd = () => {
             createdDate: "",
             updatedDate: ""
         })
-
-
     }
-
-
-
-
     return (
         <main className='page'>
             <header>
@@ -77,12 +73,10 @@ const MerchantAdd = () => {
             </header>
             <div style={{ width: "100%" }}>
                 <Form initialValues={curMerchantValues} layout='vertical' onFinish={onSubmitAddMerchant}>
-                    <Form.Item
-                        shouldUpdate={(prevValues, curValues) => prevValues.additional !== curValues.additional}
-                        name="bigCategory"
-                        label={<Label>{"대분류"}</Label>}
-                    >
+                    <Form.Item label="대분류"
+                        shouldUpdate={(prevValues, curValues) => prevValues.additional !== curValues.additional}>
                         <Select
+                            name="bigCategory"
                             defaultValue={"shopping"}
                             options={categories.data} onChange={(value) => {
                                 const target = categories.data.filter((big) => big.value === value)
@@ -91,12 +85,11 @@ const MerchantAdd = () => {
                                 setCurMerchantValues({ ...curMerchantValues, bigCategory: value })
                             }} />
                     </Form.Item>
-                    <Form.Item
-                        shouldUpdate={(prevValues, curValues) => prevValues.additional !== curValues.additional}
-                        name="smallCategory"
-                        label="소분류"
-                    >
-                        <Select value={curSmallCate}
+                    <Form.Item label="소분류"
+                        shouldUpdate={(prevValues, curValues) => prevValues.additional !== curValues.additional}>
+                        <Select
+                            name="smallCategory"
+                            value={curSmallCate}
                             options={curSmallCate}
                             onChange={(value) => {
                                 setCurMerchantValues({ ...curMerchantValues, smallCategory: value })
@@ -141,28 +134,10 @@ const MerchantAdd = () => {
                         name="status"
                         label="머천트 사용유무">
                         <Select
-
                             onChange={(status) => {
                                 setCurMerchantValues({ ...curMerchantValues, status: status })
                             }}
-                            options={
-                                [{
-                                    value: "available",
-                                    label: "사용가능",
-                                },
-                                {
-                                    value: "unavailable",
-                                    label: "사용불가",
-                                },
-                                {
-                                    value: "pending",
-                                    label: "승인대기",
-                                },
-                                {
-                                    value: "permit",
-                                    label: "승인가능",
-                                }
-                                ]} />
+                            options={MerchantStatusList} />
                     </Form.Item>
                     <Form.Item
                         shouldUpdate={(prevValues, curValues) => prevValues.additional !== curValues.additional}

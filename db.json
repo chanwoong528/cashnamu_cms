@@ -26,35 +26,91 @@
     },
     {
       "id": 2,
-      "title": "머천트",
+      "title": "쇼핑몰",
       "url": "/merchants",
       "subMenu": [
         {
           "id": 0,
-          "sub_title": "머천트 목록",
-          "url": "/merchants/list"
-        },
-        {
-          "id": 1,
-          "sub_title": "엑셀 업로드",
-          "url": "/merchants/upload"
+          "sub_title": "쇼핑몰 목록",
+          "url": "/merchants/shopping-list"
         }
       ]
     },
     {
       "id": 3,
+      "title": "포인트 샵",
+      "url": "/points",
+      "subMenu": [
+        {
+          "id": 0,
+          "sub_title": "포인트 샵 목록",
+          "url": "/points/shop-list"
+        },
+        {
+          "id": 1,
+          "sub_title": "포인트 샵 상품 목록",
+          "url": "/points/item-list"
+        },
+        {
+          "id": 2,
+          "sub_title": "쿠폰 구매 내역",
+          "url": "/points/coupon-purchased-list"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "핫딜",
+      "url": "/hot-deal",
+      "subMenu": [
+        {
+          "id": 0,
+          "sub_title": "핫딜 목록",
+          "url": "/hot-deal/hot-list"
+        }
+      ]
+    },
+    {
+      "id": 5,
       "title": "리워드",
       "url": "/rewards",
       "subMenu": [
         {
           "id": 0,
           "sub_title": "리워드 목록",
-          "url": "/rewards/list"
+          "url": "/rewards/user-list"
         },
         {
           "id": 1,
           "sub_title": "리워드 실적 조회",
-          "url": "/rewards/data"
+          "url": "/rewards/item-list"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "게시판/약관",
+      "url": "/board",
+      "subMenu": [
+        {
+          "id": 0,
+          "sub_title": "공지사항",
+          "url": "/board/notice"
+        },
+        {
+          "id": 1,
+          "sub_title": "FAQ",
+          "url": "/board/faq"
+        },
+        {
+          "id": 2,
+          "sub_title": "이용약관",
+          "url": "/board/terms-usage"
+        },
+        {
+          "id": 4,
+          "sub_title": "개인정보 처리방침",
+          "url": "/board/terms-privacy"
         }
       ]
     }
@@ -484,6 +540,50 @@
       ]
     }
   ],
+  "pointCategory": [
+    {
+      "value": "giftcard_coupon",
+      "label": "상품권/쿠폰",
+      "smallCategory": [
+        {
+          "value": "giftcard_coupon",
+          "label": "상품권/쿠폰"
+        }
+      ]
+    },
+    {
+      "value": "convenience_store",
+      "label": "편의점",
+      "smallCategory": [
+        {
+          "value": "convenience_store",
+          "label": "편의점"
+        }
+      ]
+    },
+    {
+      "value": "food",
+      "label": "푸드",
+      "smallCategory": [
+        {
+          "value": "chicken",
+          "label": "치킨"
+        },
+        {
+          "value": "western_pizza",
+          "label": "양식/피자"
+        },
+        {
+          "value": "japanese_don",
+          "label": "일식/돈까스"
+        },
+        {
+          "value": "cafe_dessert",
+          "label": "카페/디저트"
+        }
+      ]
+    }
+  ],
   "merchants": [
     {
       "id": 0,
@@ -502,7 +602,8 @@
       "commission": "",
       "views": 0,
       "createdDate": "",
-      "updatedDate": ""
+      "updatedDate": "",
+      "key": 0
     },
     {
       "bigCategory": "shopping",
@@ -521,7 +622,8 @@
       "views": 0,
       "createdDate": "",
       "updatedDate": "",
-      "id": 1
+      "id": 1,
+      "key": 1
     },
     {
       "bigCategory": "traveling",
@@ -541,6 +643,80 @@
       "createdDate": "",
       "updatedDate": "",
       "id": 2
+    }
+  ],
+  "rewards": [
+    {
+      "id": 0,
+      "userEmail": "cksdnd004@gmail.com",
+      "userName": "문찬웅",
+      "purchasedDate": "",
+      "purchasedAmount": 7600,
+      "linkPricePoint": 46,
+      "cashnamuPoint": 10,
+      "userPoint": 36,
+      "status": "pending"
+    },
+    {
+      "id": 1,
+      "userEmail": "cksdnd004@gmail.com",
+      "userName": "문찬웅",
+      "purchasedDate": "",
+      "purchasedAmount": 7600,
+      "linkPricePoint": 46,
+      "cashnamuPoint": 10,
+      "userPoint": 36,
+      "status": "pending"
+    },
+    {
+      "id": 2,
+      "userEmail": "cksdnd004@gmail.com",
+      "userName": "문찬웅",
+      "purchasedDate": "",
+      "purchasedAmount": 7600,
+      "linkPricePoint": 46,
+      "cashnamuPoint": 10,
+      "userPoint": 36,
+      "status": "pending"
+    }
+  ],
+  "purchasedItem": [
+    {
+      "id": 0,
+      "userEmail": "cksdnd004@gmail.com",
+      "purchasedDate": "",
+      "itemNumber": "8605990347574925",
+      "itemCode": "6451735078",
+      "itemName": "네츄럴파크 방 문손잡이 보호 쿠션 커버",
+      "itemAmount": 1,
+      "itemPrice": 5000,
+      "commission": 193,
+      "status": "pending"
+    },
+    {
+      "id": 1,
+      "userEmail": "cksdnd004@gmail.com",
+      "purchasedDate": "",
+      "itemNumber": "8605990347574925",
+      "itemCode": "6451735078",
+      "itemName": "종가집 어린이 한입 깍두기",
+      "itemAmount": 1,
+      "itemPrice": 5000,
+      "commission": 193,
+      "status": "pending"
+    }
+  ],
+  "pointShops": [
+    {
+      "bigCategory": "convenience_store",
+      "smallCategory": "convenience_store",
+      "brandCode": "",
+      "brandName": "",
+      "imgUrl": "",
+      "popular": false,
+      "status": true,
+      "createdDate": "2022. 12. 27.",
+      "id": 1
     }
   ]
 }

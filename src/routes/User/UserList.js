@@ -4,7 +4,7 @@ import { Table, Space, Button, Modal, Form, Switch, Input, InputNumber, Select }
 import { SearchOutlined } from '@ant-design/icons';
 import Highlighter from 'react-highlight-words';
 
-import api from "../apis/apiUser"
+import api from "../../apis/apiUser"
 
 const UserList = () => {
 
@@ -134,7 +134,6 @@ const UserList = () => {
         setIsModalOpen(true)
     }
     const actionTab = [
-
         {
             "key": "id",
             "title": "ID",
@@ -182,7 +181,8 @@ const UserList = () => {
             "key": "lastLoggedInDate",
             "title": "마지막 로그인 날짜",
             "dataIndex": "lastLoggedInDate"
-        }, {
+        },
+        {
             title: 'Action',
             key: 'action',
             render: (record) => {
@@ -201,7 +201,7 @@ const UserList = () => {
 
         <main className='page'>
             <div style={{ width: "100%" }}>
-                <Table dataSource={users.data}
+                <Table dataSource={users.data ? users.data.map((item, idx) => { return { ...item, key: idx } }) : []}
                     columns={actionTab} />
             </div>
             <Modal title="유저 수정" open={isModalOpen}

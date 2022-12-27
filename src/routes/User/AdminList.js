@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { Table, Space, Button, Modal, Form, Input, Switch } from 'antd'
 import { useQuery, useMutation, useQueryClient } from 'react-query'
 
-import api from "../apis/apiAdmin"
+import api from "../../apis/apiAdmin"
+import { AdminListActionTab } from '../../common/ActionTabsConfig'
 
 const AdminList = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,21 +25,7 @@ const AdminList = () => {
         }
     })
     const actionTab = [
-        {
-            "key": "id",
-            "title": "ID",
-            "dataIndex": "id"
-        },
-        {
-            "key": "name",
-            "title": "Name",
-            "dataIndex": "name"
-        },
-        {
-            "key": "email",
-            "title": "Email",
-            "dataIndex": "email"
-        },
+        ...AdminListActionTab,
         {
             title: 'Action',
             key: 'action',
@@ -87,7 +74,7 @@ const AdminList = () => {
         <main className='page'>
             <div style={{ width: "100%", }}            >
                 {!isLoading ?
-                    <Table dataSource={data}
+                    <Table dataSource={data.map((item, idx) => { return { ...item, key: idx } })}
                         onRow={(row, rowIdx) => {
                             return {
                                 onClick: (e) => {

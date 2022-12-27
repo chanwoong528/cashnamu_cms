@@ -10,11 +10,9 @@ async function fetchGetCategory() {
         })
         const data = await fetchGetBigCategory.json();
         return data;
-
     } catch (error) {
         console.warn("fetchGetBigCategory[error]: ", error)
     }
-
 }
 async function fetchGetMerchantsList() {
     try {
@@ -47,7 +45,6 @@ async function fetchPatchMerchantById(record) {
     }
 }
 async function fetchPostNewMerchant(record) {
-    console.log("api: ", record)
     try {
         const fetchPostNewMerchant = await fetch(`${apiUrl}/merchants`, {
             method: "POST",
