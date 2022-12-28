@@ -37,10 +37,8 @@ const MerchantAdd = () => {
     })
     const mutationPostMerchant = useMutation(api.fetchPostNewMerchant, {
         onSuccess: () => {
-            queryClient.invalidateQueries("merchants")
             alert("New Merchant Created.")
-
-
+            queryClient.invalidateQueries("merchants")
         }
     })
     const onSubmitAddMerchant = async (formValue) => {

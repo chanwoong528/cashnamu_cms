@@ -17,7 +17,13 @@ import PointItemList from './routes/Product/PointItemList';
 import HotDealList from './routes/Product/HotDealList';
 import CouponPurchasedList from './routes/Product/CouponPurchasedList';
 import PointShopAdd from './routes/Product/PointShopAdd';
+import FAQEdit from './routes/Board/FAQEdit';
+import FAQList from './routes/Board/FAQList';
 import FAQAdd from './routes/Board/FAQAdd';
+import NoticeList from './routes/Board/NoticeList';
+import NoticeAdd from './routes/Board/NoticeAdd';
+import NoticeEdit from './routes/Board/NoticeEdit';
+
 
 
 const App = () => {
@@ -57,10 +63,12 @@ const App = () => {
                                 <Route path='item-list' element={<PurchasedItemList />} />
                             </Route>
                             <Route path='board' >
-                                <Route path='user-list' element={<RewardUserList />} />
-                                <Route path='faq' element={<FAQAdd />} >
-                                    <Route path='new' element={<FAQAdd />} />
-                                </Route>
+                                <Route path='faq' element={<FAQList />} />
+                                <Route path='faq-new' element={<FAQAdd />} />
+                                <Route path='faq-edit' element={<FAQEdit />} />
+                                <Route path='notice' element={<NoticeList />} />
+                                <Route path='notice-new' element={<NoticeAdd />} />
+                                <Route path='notice-edit' element={<NoticeEdit />} />
                             </Route>
                         </Routes>
                     </div>

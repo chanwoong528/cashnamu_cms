@@ -1,23 +1,21 @@
-import React, { useEffect } from 'react'
-import { useQuill } from "react-quilljs";
+import React, { useEffect, forwardRef } from 'react'
 import "quill/dist/quill.snow.css";
 
-
-const QuillEditor = ({ setHtmlText }) => {
-    const { quill, quillRef } = useQuill();
+const QuillEditor = ({ setHtmlContent, htmlContent, quill }, ref) => {
     useEffect(() => {
         if (quill) {
             quill.on('text-change', (delta, oldDelta, source) => {
-                console.log(quillRef.current.firstChild.innerHTML);
-                setHtmlText(quillRef.current.firstChild.innerHTML)
+                setHtmlContent(ref.current.firstChild.innerHTML)
             })
+            if (htmlContent !== "") {
+                quill.setContents(quill.clipboard.convert(htmlContent), 'silent')
+            }
         }
     }, [quill])
+
     return (
-        <div style={{ width: 1000, height: 300 }}>
-            <div ref={quillRef} />
-        </div>
+        <div ref={ref} style={{ height: 400 }} />
     )
 }
 
-export default QuillEditor
+export default forwardRef(QuillEditor)

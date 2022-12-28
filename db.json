@@ -584,67 +584,7 @@
       ]
     }
   ],
-  "merchants": [
-    {
-      "id": 0,
-      "bigCategory": "",
-      "smallCategory": "",
-      "logoImgUrl": "",
-      "merchantId": "",
-      "siteName": "",
-      "siteUrl": "",
-      "mobile": true,
-      "popular": false,
-      "deepLink": false,
-      "status": "available",
-      "siteInfo": "",
-      "siteCaution": "",
-      "commission": "",
-      "views": 0,
-      "createdDate": "",
-      "updatedDate": "",
-      "key": 0
-    },
-    {
-      "bigCategory": "shopping",
-      "smallCategory": "life_interior",
-      "logoImgUrl": "aaaaa",
-      "merchantId": "",
-      "siteName": "aaaaa",
-      "siteUrl": "aaaaaa",
-      "mobile": true,
-      "popular": false,
-      "deepLink": false,
-      "status": "available",
-      "siteInfo": "aaavbbababab\nbb\nbb\nbbb\nbb",
-      "siteCaution": "aaa\naa\na\naaa",
-      "commission": "",
-      "views": 0,
-      "createdDate": "",
-      "updatedDate": "",
-      "id": 1,
-      "key": 1
-    },
-    {
-      "bigCategory": "traveling",
-      "smallCategory": "traveling_ticket",
-      "logoImgUrl": "aaasdasdas",
-      "merchantId": "",
-      "siteName": "asdasdasd",
-      "siteUrl": "asdasdasdsa",
-      "mobile": true,
-      "popular": true,
-      "deepLink": false,
-      "status": "unavailable",
-      "siteInfo": "bbbsdsvs\ncc\nc\nc\ncc\n\nssss",
-      "siteCaution": "aa\na\na\na\na\na\n\n\naaa",
-      "commission": "",
-      "views": 0,
-      "createdDate": "",
-      "updatedDate": "",
-      "id": 2
-    }
-  ],
+  "merchants": [],
   "rewards": [
     {
       "id": 0,
@@ -717,6 +657,70 @@
       "status": true,
       "createdDate": "2022. 12. 27.",
       "id": 1
+    },
+    {
+      "bigCategory": "convenience_store",
+      "smallCategory": "convenience_store",
+      "brandCode": "aaaa",
+      "brandName": "aaaaa",
+      "imgUrl": "",
+      "popular": false,
+      "status": true,
+      "createdDate": "2022. 12. 28.",
+      "id": 2
+    }
+  ],
+  "FAQCategory": [
+    {
+      "id": 0,
+      "label": "시작하기",
+      "value": "start"
+    },
+    {
+      "id": 0,
+      "label": "주문하기",
+      "value": "order"
+    },
+    {
+      "id": 0,
+      "label": "캐시백 받기",
+      "value": "cashback"
+    },
+    {
+      "id": 0,
+      "label": "환급 받기",
+      "value": "refund"
+    }
+  ],
+  "FAQ": [
+    {
+      "category": "order",
+      "title": "aaa  bbbb",
+      "content": "<p><strong>dksfjlaksjfklasfasfd</strong></p><p><br></p><p><br></p><p><br></p><p>aaaaaa</p>",
+      "createdDate": "2022. 12. 28.",
+      "id": 5
+    },
+    {
+      "category": "order",
+      "title": "aaaa",
+      "content": "<p>aaaaaaa</p>",
+      "createdDate": "2022. 12. 28.",
+      "id": 6
+    },
+    {
+      "category": "order",
+      "title": "vvvvvvvvvvvvvvvv",
+      "content": "<p><strong>vvvvvvvvvvvv</strong></p>",
+      "createdDate": "2022. 12. 28.",
+      "id": 7
+    }
+  ],
+  "notice": [
+    {
+      "id": 0,
+      "title": "",
+      "content": "",
+      "createdDate": ""
     }
   ]
 }

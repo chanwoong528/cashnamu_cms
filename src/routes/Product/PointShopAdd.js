@@ -24,8 +24,8 @@ const PointShopAdd = () => {
     const categories = useQuery("pointsCategory", api.fetchGetCategory);
     const mutationPostPointShop = useMutation(api.fetchPostNewPointShop, {
         onSuccess: () => {
-            queryClient.invalidateQueries("pointShops");
             alert("New Point Shop Created.")
+            queryClient.invalidateQueries("pointShops");
         }
     })
 
