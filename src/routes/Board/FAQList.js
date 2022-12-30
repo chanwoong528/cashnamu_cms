@@ -3,11 +3,14 @@ import { Table, Space, Button, Modal, Form, Switch, Input, InputNumber, Select }
 import { useMutation, useQuery, useQueryClient } from 'react-query'
 import { useNavigate } from 'react-router-dom'
 import api from "../../apis/apiBoard"
+
+import PageLayout from '../../components/layout/PageLayout'
+
 const FAQList = () => {
     const navigate = useNavigate();
-    const faqList = useQuery(["FAQ", "FAQ"], () => { return api.fetchGetBoardTypeList("FAQ") });
-
     const queryClient = useQueryClient();
+
+    const faqList = useQuery(["FAQ", "FAQ"], () => { return api.fetchGetBoardTypeList("FAQ") });
     const actionTab = [
         {
             "key": "id",
@@ -53,14 +56,15 @@ const FAQList = () => {
 
     if (!faqList.isLoading)
         return (
-            <main className='page'>FAQList
+            <PageLayout pageTitle={"FAQ 목록"} >
+
                 <div style={{ width: "100%" }} className='btn-control'>
                     <Button type="primary" onClick={() => { navigate("/board/faq-new") }}>Add New FAQ</Button>
                 </div>
                 <div style={{ width: "100%" }}>
                     <Table columns={actionTab} dataSource={faqList.data?.map((item, idx) => { return { ...item, key: idx } })} />
                 </div>
-            </main>
+            </PageLayout>
         )
 }
 

@@ -1,15 +1,14 @@
 import React from 'react'
 
-const HotDealList = () => {
+const PageLayout = ({ children, pageTitle }) => {
     return (
         <main className='page'>
             <header>
-                <h2>공지사항 목록</h2>
+                <h2>{pageTitle}</h2>
             </header>
-
-
+            {children}
         </main>
     )
 }
 
-export default HotDealList
+export default PageLayout

@@ -1,5 +1,62 @@
 import { Table, Space, Button, Modal, Form, Input, Switch } from 'antd'
 
+export const UserListActionTab = [
+    {
+        "key": "id",
+        "title": "ID",
+        "dataIndex": "id",
+
+    },
+    {
+        "key": "type",
+        "title": "회원구분",
+        "dataIndex": "type",
+        // filters: [
+        //     {
+        //         text: '카카오',
+        //         value: 'kakao',
+        //     },
+        //     {
+        //         text: '네이버',
+        //         value: 'naver',
+        //     },
+        // ],
+        // filterMode: 'tree',
+        // filterSearch: true,
+        // onFilter: (value, record) => record.type.includes(value),
+    },
+    {
+        "key": "name",
+        "title": "Name",
+        "dataIndex": "name",
+        // ...getColumnSearchProps('name'),
+    },
+    {
+        "key": "email",
+        "title": "Email",
+        "dataIndex": "email",
+        // ...getColumnSearchProps('email'),
+    },
+    {
+        "key": "cell",
+        "title": "전화번호",
+        "dataIndex": "cell",
+        // ...getColumnSearchProps('email'),
+    },
+    {
+        "key": "points",
+        "title": "Points",
+        "dataIndex": "points"
+    }, {
+        "key": "createdDate",
+        "title": "가입날짜",
+        "dataIndex": "createdDate"
+    }, {
+        "key": "lastLoggedInDate",
+        "title": "마지막 로그인 날짜",
+        "dataIndex": "lastLoggedInDate"
+    },
+]
 
 export const RewardUserListActionTab = [
     {

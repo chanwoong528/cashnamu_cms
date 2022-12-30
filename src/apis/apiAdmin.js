@@ -13,13 +13,6 @@ async function fetchGetAdminItem(id) {
         )
         const data = await fetchGetAdminItem.json()
         return data
-
-        if (returnData.length === 0) {
-            return 404;
-        } else {
-
-        }
-
     } catch (error) {
         console.warn("fetchGetAdminList[error]: ", error)
     }

@@ -72,7 +72,10 @@ const AdminList = () => {
     return (
 
         <main className='page'>
-            <div style={{ width: "100%", }}            >
+            <header>
+                <h2>어드민 목록</h2>
+            </header>
+            <div style={{ width: "100%", }}>
                 {!isLoading ?
                     <Table dataSource={data.map((item, idx) => { return { ...item, key: idx } })}
                         onRow={(row, rowIdx) => {

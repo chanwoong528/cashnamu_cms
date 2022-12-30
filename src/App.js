@@ -23,6 +23,8 @@ import FAQAdd from './routes/Board/FAQAdd';
 import NoticeList from './routes/Board/NoticeList';
 import NoticeAdd from './routes/Board/NoticeAdd';
 import NoticeEdit from './routes/Board/NoticeEdit';
+import Privacy from './routes/Board/Privacy';
+import Usage from './routes/Board/Usage';
 
 
 
@@ -69,6 +71,8 @@ const App = () => {
                                 <Route path='notice' element={<NoticeList />} />
                                 <Route path='notice-new' element={<NoticeAdd />} />
                                 <Route path='notice-edit' element={<NoticeEdit />} />
+                                <Route path='terms-privacy' element={<Privacy />} />
+                                <Route path='terms-usage' element={<Usage />} />
                             </Route>
                         </Routes>
                     </div>

@@ -4,3 +4,27 @@
     gap: 10px;
     margin-bottom: 20px;
 }
+
+.page .footer-btn-control {
+    display: flex;
+    align-self: flex-end;
+
+    gap: 10px;
+}
+
+.page>header {
+    align-self: flex-start;
+}
+
+.page>header h2 {
+    margin: 0 0 20px;
+}
+
+.page .search-control {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 10px;
+    width: 100%;
+    margin: 0 0 20px;
+}

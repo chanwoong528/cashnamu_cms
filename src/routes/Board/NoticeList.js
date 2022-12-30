@@ -3,6 +3,8 @@ import { Table, Space, Button, Modal, Form, Switch, Input, InputNumber, Select }
 import { useMutation, useQuery, useQueryClient } from 'react-query'
 import { useNavigate } from 'react-router-dom'
 
+import PageLayout from '../../components/layout/PageLayout'
+
 import api from "../../apis/apiBoard";
 
 const NoticeList = () => {
@@ -39,14 +41,14 @@ const NoticeList = () => {
 
 
     return (
-        <main className='page'>
+        <PageLayout pageTitle={"공지사항 목록"} >
             <div style={{ width: "100%" }} className='btn-control'>
                 <Button type="primary" onClick={() => { navigate("/board/notice-new") }}>Add New Notice</Button>
             </div>
             <div style={{ width: "100%" }}>
                 <Table columns={actionTab} dataSource={noticeList.data?.map((item, idx) => { return { ...item, key: idx } })} />
             </div>
-        </main>
+        </PageLayout>
     )
 }
 

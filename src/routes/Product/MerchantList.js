@@ -107,6 +107,9 @@ const MerchantList = () => {
     };
     return (
         <main className='page'>
+            <header>
+                <h2>쇼핑몰 목록</h2>
+            </header>
             <div style={{ width: "100%" }} className='btn-control'>
                 <Button type="primary" onClick={() => { navigate("/merchants/new") }}>Add New Merchant</Button>
                 <Button onClick={() => { navigate("/merchants/new") }}>Excel Upload</Button>

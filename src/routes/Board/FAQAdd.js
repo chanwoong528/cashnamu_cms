@@ -7,6 +7,7 @@ import { useQuill } from "react-quilljs";
 import QuillEditor from '../../components/Elements/Form/QuillEditor'
 
 import api from "../../apis/apiBoard"
+import PageLayout from '../../components/layout/PageLayout';
 
 const FAQAdd = () => {
     const { quill, quillRef } = useQuill();
@@ -39,7 +40,7 @@ const FAQAdd = () => {
 
     if (!FAQCate.isLoading)
         return (
-            <main className='page'>
+            <PageLayout pageTitle={"FAQ 등록"} >
                 <div style={{ width: "100%" }}>
                     <Form form={form} initialValues={FAQContext} layout='vertical' onFinish={onSubmitAddFAQ}>
                         <Form.Item label="분류"
@@ -62,10 +63,14 @@ const FAQAdd = () => {
                             <Button type="primary" htmlType="submit">
                                 Submit
                             </Button>
+                            <Button type="primary" danger style={{ marginLeft: 10 }} onClick={() => { navigate(-1) }}>
+                                Cancel
+                            </Button>
                         </Form.Item>
                     </Form>
                 </div>
-            </main>
+
+            </PageLayout>
         )
 }
 

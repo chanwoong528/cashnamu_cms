@@ -25,7 +25,8 @@ async function fetchPatchBoardTypeById(type, record) {
             },
             body: JSON.stringify(params)
         })
-        const data = fetchPatchBoardTypeById.json()
+        const data = await fetchPatchBoardTypeById.json()
+        console.log(data)
         return data;
     } catch (error) {
         console.warn(`fetchPatchBoardTypeById[error(${type})]: `, error);

@@ -8,8 +8,8 @@ import api from "../../apis/apiBoard"
 
 import { useQuill } from "react-quilljs";
 import QuillEditor from '../../components/Elements/Form/QuillEditor'
-import "quill/dist/quill.snow.css";
 
+import PageLayout from '../../components/layout/PageLayout';
 const FAQEdit = () => {
     const { search } = useLocation();
     const navigate = useNavigate();
@@ -49,7 +49,7 @@ const FAQEdit = () => {
     }
     if (!singleFAQ.isLoading)
         return (
-            <main className='page'>
+            <PageLayout pageTitle={"FAQ 수정"} >
                 <div style={{ width: "100%" }}>
                     <Form form={form} initialValues={FAQContext} layout='vertical' onFinish={onSubmitEditFAQ}>
                         <Form.Item label="분류"
@@ -72,10 +72,13 @@ const FAQEdit = () => {
                             <Button htmlType="submit">
                                 Edit
                             </Button>
+                            <Button danger style={{ marginLeft: 10 }} onClick={() => { navigate(-1) }}>
+                                Cancel
+                            </Button>
                         </Form.Item>
                     </Form>
                 </div>
-            </main>
+            </PageLayout>
         )
 }
 
