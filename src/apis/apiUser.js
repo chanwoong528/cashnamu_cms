@@ -32,11 +32,11 @@ async function fetchGetUserList() {
     }
 }
 async function fetchPatchUserList(records) {
-
+    //TODO: have to  change -> client multiple X  --> server multiple O
     console.log("api>> ", records)
     try {
-        const fetchPatchUserList = await records.map(async (user) => {
-            return await fetch(`${apiUrl}/users/${user.id}`, {
+        const fetchPatchUserList = await records.forEach((user) => {
+            fetch(`${apiUrl}/users/${user.id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -46,6 +46,8 @@ async function fetchPatchUserList(records) {
 
         })
         const data = await Promise.all([fetchPatchUserList]);
+
+        console.log("api>> ", data);
         return data;
     } catch (error) {
         console.warn("fetchPatchUser[error]: ", error)

@@ -14,7 +14,7 @@ const UserList = () => {
     const users = useQuery(
         "users",
         api.fetchGetUserList, {
-            cacheTime: 0
+        cacheTime: 0
     }
     )
     const mutationPatchUser = useMutation(api.fetchPatchUser, {
@@ -35,7 +35,7 @@ const UserList = () => {
     const mutationPatchUserList = useMutation((userArr) => { return api.fetchPatchUserList(userArr) }, {
         onSuccess: () => {
             queryClient.invalidateQueries("users");
-        }, cacheTime: 0
+        }
     })
     const bankNames = useQuery("bankNames", api.fetchGetBankList);
     const [dateType, setDateType] = useState("createdDate");
@@ -178,12 +178,15 @@ const UserList = () => {
     }
     const onClickAddPoints = () => {
 
+
         const usersToAddPoints = users.data.filter((user) => { return checkedKeys.includes(user.id) }).map((user) => {
             return { ...user, points: user.points + pointsToAdd }
         })
 
-        mutationPatchUserList.mutate(usersToAddPoints);
 
+        mutationPatchUserList.mutate(usersToAddPoints);
+        setCheckedKeys([]);
+        setPointsToAdd(0);
 
     }
     const selectedRow = (selectedRecord) => {
@@ -192,6 +195,7 @@ const UserList = () => {
 
 
     const rowSelection = {
+        selectedRowKeys: checkedKeys,
         onChange: selectedRow,
         type: 'checkbox'
     };
@@ -269,7 +273,7 @@ const UserList = () => {
                     columns={actionTab} />
             </div>
             <div className='footer-btn-control'>
-                <InputNumber defaultValue={0} onChange={(pointVal) => { setPointsToAdd(pointVal) }} />
+                <InputNumber defaultValue={0} value={pointsToAdd} onChange={(pointVal) => { setPointsToAdd(pointVal) }} />
                 <Button onClick={() => { onClickAddPoints() }}>Add Points</Button>
 
             </div>
