@@ -1,14 +1,12 @@
 import React from 'react'
+import PageLayout from '../../components/layout/PageLayout'
 
 const HotDealList = () => {
     return (
-        <main className='page'>
-            <header>
-                <h2>공지사항 목록</h2>
-            </header>
+        <PageLayout pageTitle={"핫딜"}>
 
 
-        </main>
+        </PageLayout>
     )
 }
 

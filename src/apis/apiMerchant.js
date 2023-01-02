@@ -2,7 +2,7 @@ import { apiUrl } from "../common/Config";
 
 async function fetchGetCategory() {
     try {
-        const fetchGetBigCategory = await fetch(`${apiUrl}/category`, {
+        const fetchGetBigCategory = await fetch(`${apiUrl}/merchantCategory`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -45,6 +45,7 @@ async function fetchPatchMerchantById(record) {
     }
 }
 async function fetchPostNewMerchant(record) {
+
     try {
         const fetchPostNewMerchant = await fetch(`${apiUrl}/merchants`, {
             method: "POST",

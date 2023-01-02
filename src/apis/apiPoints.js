@@ -47,7 +47,23 @@ async function fetchPostNewPointShop(record) {
         console.warn("fetchPostNewPointShop[error]: ", error)
     }
 }
+async function fetchGetBoughtCouponList() {
+    try {
+        const fetchGetBoughtCouponList = await fetch(`${apiUrl}/boughtCoupons`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+        const data = await fetchGetBoughtCouponList.json()
+        return data;
+    } catch (error) {
+        console.warn("fetchGetBoughtCouponList[error]: ", error)
+    }
+}
+async function fetchGetCouponListByTerm(term) {
+
+}
 
 
-
-export default { fetchGetCategory, fetchPostNewPointShop, fetchGetPointShopList }
+export default { fetchGetCategory, fetchPostNewPointShop, fetchGetPointShopList, fetchGetBoughtCouponList }

@@ -1,5 +1,54 @@
 import { Table, Space, Button, Modal, Form, Input, Switch } from 'antd'
 
+
+export const BoughtCouponListActionTab = [
+    {
+        "key": "id",
+        "title": "ID",
+        "dataIndex": "id",
+    }, {
+        "key": "brand",
+        "title": "brand",
+        "dataIndex": "brand",
+    }, {
+        "key": "id",
+        "title": "ID",
+        "dataIndex": "id",
+    }, {
+        "key": "itemId",
+        "title": "itemId",
+        "dataIndex": "itemId",
+    }, {
+        "key": "itemName",
+        "title": "itemName",
+        "dataIndex": "itemName",
+    }, {
+        "key": "price",
+        "title": "price",
+        "dataIndex": "price",
+    }, {
+        "key": "orderNumber",
+        "title": "orderNumber",
+        "dataIndex": "orderNumber",
+    }, {
+        "key": "couponNumber",
+        "title": "couponNumber",
+        "dataIndex": "couponNumber",
+    }, {
+        "key": "status",
+        "title": "status",
+        "dataIndex": "status",
+    }, {
+        "key": "purchasedEmail",
+        "title": "purchasedEmail",
+        "dataIndex": "purchasedEmail",
+    }, {
+        "key": "purchasedDate",
+        "title": "purchasedDate",
+        "dataIndex": "purchasedDate",
+    },
+]
+
 export const UserListActionTab = [
     {
         "key": "id",
@@ -184,5 +233,4 @@ export const MerchantStatusList = [{
 {
     value: "permit",
     label: "승인가능",
-}
-]; 
+}]; 

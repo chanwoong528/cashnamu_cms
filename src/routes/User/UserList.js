@@ -44,6 +44,7 @@ const UserList = () => {
     const [searchTerms, setSearchTerms] = useState({});
     const [checkedKeys, setCheckedKeys] = useState([])
     const [pointsToAdd, setPointsToAdd] = useState(0)
+    const [searchCate, setSearchCate] = useState("")
     const [form] = Form.useForm();
 
     // for filtering in the client side
@@ -244,16 +245,19 @@ const UserList = () => {
                             style={{ width: 150 }}
                             placeholder={"사용자 정보"}
                             options={[
+                                { value: "", label: "검색 목록" },
                                 { value: "name", label: "이름" },
                                 { value: "email", label: "이메일" },
                                 { value: "cell", label: "전화번호" }
                             ]} onChange={(value) => {
+                                setSearchCate(value)
                                 setSearchTerms({ ...searchTerms, userInfoCate: value })
                             }}
                         />
                     </Form.Item>
                     <Form.Item>
-                        <Input onChange={(e) => { setSearchTerms({ ...searchTerms, searchInfo: e.target.value }) }} />
+                        <Input disabled={!searchCate}
+                            onChange={(e) => { setSearchTerms({ ...searchTerms, searchInfo: e.target.value }) }} />
                     </Form.Item>
                     <Form.Item>
                         <Button type='primary' htmlType="submit" >Search</Button>

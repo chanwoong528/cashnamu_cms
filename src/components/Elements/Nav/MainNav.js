@@ -9,14 +9,13 @@ import { Menu } from 'antd';
 const MainNav = () => {
     const [currentOpen, setCurrentOpen] = useState(location.pathname[0])
     const [current, setCurrent] = useState(location.pathname)
-    const { isLoading, isError, data, error } = useQuery("menus", api.fetchGetMenusCMS,)
+    const { isLoading, isError, data, error } = useQuery("menus", api.fetchGetMenusCMS)
     const navigate = useNavigate();
     useEffect(() => {
         setCurrent(location.pathname)
         setCurrentOpen(`/${location.pathname.split("/")[1]}`)
 
     }, [])
-
     const onClickMenu = (e) => {
         setCurrent(location.pathname)
         navigate(e.item.props.url)

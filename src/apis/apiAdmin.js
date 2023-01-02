@@ -65,9 +65,42 @@ async function fetchPatchAuthById(adminAuthData) {
     }
 
 }
+async function fetchGetAllCategory() {
+    try {
+        const merchantCate = await fetch(`${apiUrl}/merchantCategory`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+        const pointCate = await fetch(`${apiUrl}/pointCategory`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+        const hotdealCate = await fetch(`${apiUrl}/hotdealCategory`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+        let allCate = [];
+        allCate.push({ title: "merchant", cate: await merchantCate.json() })
+        allCate.push({ title: "point", cate: await pointCate.json() })
+        allCate.push({ title: "hotdeal", cate: await hotdealCate.json() })
+        // console.log(allCate)
+        // const data = 
+        return allCate;
+
+    } catch (error) {
+
+    }
+
+
+}
 
 
 
-
-export default { fetchGetAdminList, fetchPatchDeleteAdmin, fetchPatchAuthById, fetchGetAdminItem };
+export default { fetchGetAdminList, fetchPatchDeleteAdmin, fetchPatchAuthById, fetchGetAdminItem, fetchGetAllCategory };
 

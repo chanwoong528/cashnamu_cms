@@ -25,6 +25,7 @@ import NoticeAdd from './routes/Board/NoticeAdd';
 import NoticeEdit from './routes/Board/NoticeEdit';
 import Privacy from './routes/Board/Privacy';
 import Usage from './routes/Board/Usage';
+import Category from './routes/AdminPanel/Category';
 
 
 
@@ -74,6 +75,10 @@ const App = () => {
                                 <Route path='terms-privacy' element={<Privacy />} />
                                 <Route path='terms-usage' element={<Usage />} />
                             </Route>
+                            <Route path='category' >
+                                <Route path='list' element={<Category />} />
+                            </Route>
+
                         </Routes>
                     </div>
                 </div>
