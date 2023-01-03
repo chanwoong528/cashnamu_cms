@@ -12,10 +12,11 @@ const MainNav = () => {
     const { isLoading, isError, data, error } = useQuery("menus", api.fetchGetMenusCMS)
     const navigate = useNavigate();
     useEffect(() => {
+        console.log(location.pathname)
         setCurrent(location.pathname)
         setCurrentOpen(`/${location.pathname.split("/")[1]}`)
 
-    }, [])
+    }, [location.pathname])
     const onClickMenu = (e) => {
         setCurrent(location.pathname)
         navigate(e.item.props.url)

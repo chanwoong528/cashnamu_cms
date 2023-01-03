@@ -4,13 +4,12 @@ const TerserPlugin = require("terser-webpack-plugin");
 const HTMLWebPackPlugin = require('html-webpack-plugin'); //html 문서에 자동으로 번들파일을 추가해줍니다.
 const { CleanWebpackPlugin } = require("clean-webpack-plugin"); //웹팩을 실행할 때마다 dist 폴더를 정리하는 플러그인
 const CopyPlugin = require('copy-webpack-plugin');
-
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = (env, argv) => {
     console.log("env: ", env)
     console.log("argv: ", argv)
     const prod = argv.mode === "production";
-
     return {
         mode: prod ? "production" : "development",
         devServer: {
@@ -70,16 +69,15 @@ module.exports = (env, argv) => {
                 },
             ]
         },
-
-
         plugins: [
             new webpack.ProvidePlugin({
                 React: "react",
             }),
             new HTMLWebPackPlugin({
                 template: './src/index.html',
-                filename: './index.html'
+                filename: './index.html',
             }), // './src/index.html' 경로의 html 파일에 번들 파일을 넣어줍니다.
+            new FaviconsWebpackPlugin("./src/assets/img/favicon.ico"),
             new CopyPlugin({
                 patterns: [
                     {

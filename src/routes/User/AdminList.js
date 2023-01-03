@@ -4,6 +4,7 @@ import { useQuery, useMutation, useQueryClient } from 'react-query'
 
 import api from "../../apis/apiAdmin"
 import { AdminListActionTab } from '../../common/ActionTabsConfig'
+import PageLayout from '../../components/layout/PageLayout'
 
 const AdminList = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -70,11 +71,7 @@ const AdminList = () => {
     };
 
     return (
-
-        <main className='page'>
-            <header>
-                <h2>어드민 목록</h2>
-            </header>
+        <PageLayout pageTitle={"어드민 목록"}>
             <div style={{ width: "100%", }}>
                 {!isLoading ?
                     <Table dataSource={data.map((item, idx) => { return { ...item, key: idx } })}
@@ -127,8 +124,7 @@ const AdminList = () => {
                     }
                 </Form>
             </Modal>
-        </main >
-
+        </PageLayout>
     )
 }
 

@@ -1,5 +1,63 @@
 import { Table, Space, Button, Modal, Form, Input, Switch } from 'antd'
 
+export const PointShopActionTab = [
+    {
+        "key": "id",
+        "title": "ID",
+        "dataIndex": "id"
+    },
+    {
+        "key": "bigCategory",
+        "title": "1차 카테고리",
+        "dataIndex": "bigCategory",
+        render: (record) => {
+            switch (record) {
+                case "giftcard_coupon":
+
+                    return "상품권/쿠폰";
+                case "convenience_store":
+                    return "편의점"
+                case "food":
+                    return "푸드";
+            }
+        }
+    },
+    {
+        "key": "smallCategory",
+        "title": "2차 카테고리",
+        "dataIndex": "smallCategory",
+        render: (record) => {
+            switch (record) {
+                case "giftcard_coupon":
+                    return "상품권/쿠폰";
+                case "convenience_store":
+                    return "편의점"
+                case "chicken":
+                    return "치킨";
+                case "western_pizza":
+                    return "양식/피자";
+                case "japanese_don":
+                    return "일식/돈까스";
+                case "cafe_dessert":
+                    return "카페/디저트";
+            }
+        }
+    },
+    {
+        "key": "brandCode",
+        "title": "브랜드 코드",
+        "dataIndex": "brandCode"
+    }, {
+        "key": "brandName",
+        "title": "브랜드 이름",
+        "dataIndex": "brandName"
+    },
+    {
+        "key": "createdDate",
+        "title": "등록 날짜",
+        "dataIndex": "createdDate"
+    },
+]
 
 export const BoughtCouponListActionTab = [
     {
@@ -233,4 +291,39 @@ export const MerchantStatusList = [{
 {
     value: "permit",
     label: "승인가능",
-}]; 
+}];
+
+export const PointItemActionTab = [
+    {
+        "key": "id",
+        "title": "ID",
+        "dataIndex": "id"
+    },
+    {
+        "key": "brandCode",
+        "title": "brandCode",
+        "dataIndex": "brandCode"
+    }, {
+        "key": "itemNumber",
+        "title": "itemNumber",
+        "dataIndex": "itemNumber"
+    }, {
+        "key": "itemName",
+        "title": "itemName",
+        "dataIndex": "itemName"
+    }, {
+        "key": "price",
+        "title": "price",
+        "dataIndex": "price"
+    }, {
+        "key": "status",
+        "title": "status",
+        "dataIndex": "status"
+    }, {
+        "key": "createdDate",
+        "title": "createdDate",
+        "dataIndex": "createdDate"
+    },
+]
+
+

@@ -730,16 +730,37 @@
     }
   ],
   "pointItems": [
-    {}
+    {
+      "id": 0,
+      "brandCode": "aaaa",
+      "itemName": "[굽네치킨] 고추바사삭+매콤치즈 웨지감자+콜라1.25L",
+      "itemNumber": "0000031247",
+      "itemDetail": "",
+      "price": 25000,
+      "status": "available",
+      "exchangedDate": "",
+      "createdDate": ""
+    },
+    {
+      "id": 0,
+      "brandCode": "bbbb",
+      "itemName": "[이디야커피] (EX)ICED 아메리카노",
+      "itemNumber": "0000031247",
+      "itemDetail": "",
+      "price": 100,
+      "status": "available",
+      "exchangedDate": "",
+      "createdDate": ""
+    }
   ],
   "pointShops": [
     {
       "bigCategory": "convenience_store",
       "smallCategory": "convenience_store",
-      "brandCode": "",
-      "brandName": "",
+      "brandCode": "aaaa",
+      "brandName": "이디야",
       "imgUrl": "",
-      "popular": false,
+      "popular": true,
       "status": true,
       "createdDate": "2022. 12. 27.",
       "id": 1
@@ -747,8 +768,8 @@
     {
       "bigCategory": "convenience_store",
       "smallCategory": "convenience_store",
-      "brandCode": "aaaa",
-      "brandName": "aaaaa",
+      "brandCode": "bbbb",
+      "brandName": "굽네치킨",
       "imgUrl": "",
       "popular": false,
       "status": true,
